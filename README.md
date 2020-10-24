@@ -75,13 +75,16 @@ SIGHAN（A Special Interest Group of the Association for Computational Linguisti
 ```
     def perplexity(self, sentence):
         """
-        Compute perplexity of a sentence.
-        @param sentence One full sentence to score.  Do not include <s> or </s>.
+        计算句子的困惑度.
+        @param sentence 一句话得分 不能包含<s>或</ s>
         """
         words = len(as_str(sentence).split()) + 1 # For </s>
         return 10.0**(-self.score(sentence) / words)
     
 ```
+使用log是因为：
+- 加法比乘法快。
+- 避免下溢。
 #### score
 ```
     def score(self, sentence, bos = True, eos = True):
