@@ -82,7 +82,9 @@ SIGHAN（A Special Interest Group of the Association for Computational Linguisti
         return 10.0**(-self.score(sentence) / words)
     
 ```
+
 ![公式1](docs/images/公式1.png)
+
 使用log是因为：
 - 加法比乘法快。
 - 避免下溢。
